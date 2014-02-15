@@ -1,0 +1,115 @@
+<section contenteditable="true">
+  <p><a rel="nofollow" class="external text" href="http://code.webplatform.org/gist/5727296">View live example</a>A simple example showing different combinations of margin values applied to three identically sized elements.
+  </p>
+  <ul><li> The first one has a margin of 50 pixels on all sides.
+  </li><li> The second one has no margin on the top and bottom, but <code>auto</code> set on the left and right, causing it to center in the parent container.
+  </li><li> The third one has four individual values, including a negative top margin, causing it to move up, above the level of the second container, and a large left margin, causing it to be shunted over to the right.
+  </li></ul>
+  <div class="example" style="position:relative">
+  <p><span class="language">HTML</span>
+  </p>
+  <pre>
+  &lt;div class="one"&gt;&lt;/div&gt;
+  &lt;div class="two"&gt;&lt;/div&gt;
+  &lt;div class="three"&gt;&lt;/div&gt;
+  </pre>
+  </div>
+  <p><a rel="nofollow" class="external text" href="http://code.webplatform.org/gist/5727296">View live example</a>The CSS applied to the above HTML.
+  </p>
+  <div class="example" style="position:relative">
+  <p><span class="language">CSS</span>
+  </p>
+  <pre>
+  /**
+   * margin examples
+   */
+
+   * {
+     margin: 0;
+   }
+
+  div {
+    width: 200px;
+    height: 100px;
+    background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0));
+    border-radius: 10px;
+  }
+
+  .one {
+    background-color: red;
+    margin: 50px
+  }
+
+  .two {
+    background-color: blue;
+    margin: 0px auto;
+  }
+
+  .three {
+    background-color: green;
+    margin: -11em 0px 0px 210px;
+  }
+  </pre>
+  </div>
+  <p><a rel="nofollow" class="external text" href="http://code.webplatform.org/gist/5727295">View live example</a>The following example demonstrates the different ways of using the <code>margin</code> property.
+  </p>
+  <div class="example" style="position:relative">
+  <p><span class="language">CSS</span>
+  </p>
+  <pre>
+  .text-margin {
+    /*
+    This uses the margin: value syntax.
+    value can be specified in em, px etc.
+    */
+    margin: 1em;
+  }
+
+  .text-vertical-horizontal {
+    /*
+    This uses the margin: horizontal vertical syntax.
+    horizontal is the amount of margin for both the side, left and side.
+    Similarly, vertical is for both, top and bottom sides.
+    */
+    margin: 2rem 50px;
+  }
+
+  .text-top-horizontal-bottom {
+    /*
+    This uses the margin: top horizontal bottom syntax.
+    */
+    margin: 10pt 1em 1cm;
+  }
+
+  .text-top-right-bottom-left {
+    /*
+    This uses the margin: top right bottom left syntax.
+    */
+    margin: 5mm 1in 5ex 10ch;
+  }
+  </pre>
+  </div>
+  <p>The HTML accompanying the above example.
+  </p>
+  <div class="example" style="position:relative">
+  <p><span class="language">HTML</span>
+  </p>
+  <pre>
+  &lt;div class="container"&gt;
+    &lt;p class="text-margin"&gt;This paragraph uses the &lt;code&gt;margin: value&lt;/code&gt; syntax.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class="container"&gt;
+    &lt;p class="text-vertical-horizontal"&gt;This paragraph uses the &lt;code&gt;margin: horizontal vertical&lt;/code&gt; syntax.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class="container"&gt;
+    &lt;p class="text-top-horizontal-bottom"&gt;This paragraph uses the &lt;code&gt;margin: top horizontal bottom&lt;/code&gt; syntax.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class="container"&gt;
+    &lt;p class="text-top-right-bottom-left"&gt;This paragraph uses the &lt;code&gt;margin: top right bottom left&lt;/code&gt; syntax.&lt;/p&gt;
+  &lt;/div&gt;
+  </pre>
+  </div>
+</section>

@@ -1,0 +1,111 @@
+<section contenteditable="true">
+  <p>
+    <a rel="nofollow" class="external text" href="http://code.webplatform.org/gist/5259244">View live example</a>An example of a basic drop shadow. An outer box-shadow casts a shadow as if the border-box of the element were opaque. The shadow is drawn outside the border edge only: it is clipped inside the border-box of the element.
+  </p>
+  <div class="example" style="position:relative">
+    <p>
+      <span class="language">CSS</span>
+    </p>
+    <pre>
+article {
+/* box-shadow: left-offset top-offset blur color; */
+ box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+</pre>
+  </div>
+  <p>
+    <a rel="nofollow" class="external text" href="http://code.webplatform.org/gist/5259299">View live example</a>An example of inner drop shadows. An inner box-shadow casts a shadow as if everything outside the padding edge were opaque. The inner shadow is drawn inside the padding edge only: it is clipped outside the padding box of the element.
+  </p>
+  <div class="example" style="position:relative">
+    <p>
+      <span class="language">CSS</span>
+    </p>
+    <pre>
+article {
+/* box-shadow: left-offset top-offset blur color; */
+ box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) inset;
+}
+</pre>
+  </div>
+  <p>
+    <a rel="nofollow" class="external text" href="http://code.webplatform.org/gist/5259449">View live example</a>An example of how a positive spread distance length value affects the drop shadow. If a spread distance is defined, the shadow is expanded outward or contracted inward.
+  </p>
+  <div class="example" style="position:relative">
+    <p>
+      <span class="language">CSS</span>
+    </p>
+    <pre>
+article {
+/* box-shadow: left-offset top-offset blur spread color; */
+ box-shadow: 0 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+</pre>
+  </div>
+  <p>
+    <a rel="nofollow" class="external text" href="http://code.webplatform.org/gist/5259463">View live example</a>Negative values cause the shadow shape to contract.
+  </p>
+  <div class="example" style="position:relative">
+    <p>
+      <span class="language">CSS</span>
+    </p>
+    <pre>
+article {
+/* box-shadow: left-offset top-offset blur spread color; */
+ box-shadow: 0 20px 5px -10px rgba(0, 0, 0, 0.5);
+}
+</pre>
+  </div>
+  <p>
+    <a rel="nofollow" class="external text" href="http://code.webplatform.org/gist/5259501">View live example</a>If the blur value is zero, the shadow's edge is sharp. (A non-zero blur value indicates the resulting shadow should be blurred, such as by a Gaussian filter.)
+  </p>
+  <div class="example" style="position:relative">
+    <p>
+      <span class="language">CSS</span>
+    </p>
+    <pre>
+article {
+/* box-shadow: left-offset top-offset blur spread color; */
+ box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.5);
+}
+</pre>
+  </div>
+  <p>
+    <a rel="nofollow" class="external text" href="http://code.webplatform.org/gist/5259470">View live example</a>If the box has a nonzero ‘border-radius’, the shadow shape is rounded in the same way. (The ‘border-image’ does not affect the shape of the box-shadow.)
+  </p>
+  <div class="example" style="position:relative">
+    <p>
+      <span class="language">CSS</span>
+    </p>
+    <pre>
+article {
+/* box-shadow: left-offset top-offset blur color; */
+ box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+
+ border-radius: 10px;
+}
+</pre>
+  </div>
+  <p>
+    <a rel="nofollow" class="external text" href="http://code.webplatform.org/gist/5259531">View live example</a>An example of a multiple box-shadows. The inner shadow appears on all four sides by creating two box-shadows.
+  </p>
+  <div class="example" style="position:relative">
+    <p>
+      <span class="language">HTML</span>
+    </p>
+    <pre>
+&lt;style&gt;
+  .shadow-style {
+      width: 100px;
+      height: 100px;
+      box-shadow: inset 30px 30px 5px green, inset -30px -30px 5px blue;
+      border: 10px solid yellow;
+      background-color: red;
+  }
+&lt;/style&gt;
+&lt;body&gt;
+  &lt;div class="shadow-style"&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+</pre>
+  </div>
+</section>

@@ -13,7 +13,7 @@ function page_generator(servePath, req, callback) {
   // on any change to anything within the top repository.
   var etag = req.current;
 
-  return callback(null, {etag: etag, fetch: fetch});
+  return callback(null, {etag: etag, fetch: fetch}); // tail call
 
   function fetch(callback) {
     // The system wants us to render the body now.  First we need to read the target template.
@@ -21,7 +21,7 @@ function page_generator(servePath, req, callback) {
 
     // Now that we have the body, we can process it
     function onBody(err, body) {
-      if (err) return callback(err);
+      if (err) return callback(err); // can't try/catch on async
 
       // Convert to text.  This will throw if the data isn't utf-8, so we try..catch
       var html;

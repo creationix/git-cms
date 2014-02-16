@@ -1,5 +1,5 @@
 {
-  pages: {
+  "pages": {
     "index.html": {
       "template": "~/templates/css-summary.html",
       "tags": [

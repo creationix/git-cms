@@ -5,7 +5,7 @@
       "tags": [
         "css properties"
       ]    
-    }
+    },
     "{properties}": {
       "template": "~/templates/css-properties-page.html",
       "tags": [

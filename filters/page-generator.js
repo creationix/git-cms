@@ -54,12 +54,12 @@ function page_generator(servePath, req, callback) {
 
 			var m = JSON.stringify(manifest);
 
-      console.log("MANIFEST: " + m;
+      console.log("MANIFEST: " + m);
 
 			var template = m["template"];
 
       // For now just render the json out as the final output
-      callback(null, binary.fromUnicode(template);
+      callback(null, binary.fromUnicode(template));
 
     }
   }

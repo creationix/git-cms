@@ -59,7 +59,7 @@ function page_generator(servePath, req, callback) {
 			var template = m["template"];
 
       // For now just render the json out as the final output
-      callback(null, binary.fromUnicode(JSON.stringify(manifest)));
+      callback(null, binary.fromUnicode(template);
 
     }
   }

@@ -52,7 +52,7 @@ function page_generator(servePath, req, callback) {
       if (err) return callback(err);
       if (!manifest) return callback("Missing " + manifestPath);
 
-			var m = JSON.stringify(manifest);
+			var m = JSON.parse(manifest);
 
       console.log("MANIFEST: " + m);
 

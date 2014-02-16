@@ -1,16 +1,6 @@
 {
-  "pages": {
-    "index.html": {
-      "template": "~/templates/css-summary.html",
-      "tags": [
-        "css properties"
-      ]    
-    },
-    "{properties}": {
-      "template": "~/templates/css-properties-page.html",
-      "tags": [
-        "css properties"
-      ]    
-    }
-  }
+  "template": "../../../templates/css-summary.html",
+  "tags": [
+    "css properties"
+  ]    
 }

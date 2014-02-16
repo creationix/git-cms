@@ -15,12 +15,13 @@ function page_generator(servePath, req, callback) {
 
   return callback(null, {etag: etag, fetch: fetch});
 
+/*
   function fetch(callback) {
 
     console.log("PATH: " + req.targetPath);
 
     // The system wants us to render the body now.  First we need to read the target tree.
-    var detailsPath = pathJoin(req.targetPath, "details.json");
+    var detailsPath = pathJoin(req.targetPath, "manifest.json");
 
     console.log("DETAILS PATH: " + detailsPath);
     loadJson(detailsPath, onDetails);
@@ -33,6 +34,32 @@ function page_generator(servePath, req, callback) {
 
       // For now just render the json out as the final output
       callback(null, binary.fromUnicode(JSON.stringify(details)));
+
+    }
+  }
+*/
+  function fetch(callback) {
+
+    console.log("PATH: " + req.targetPath);
+
+    // The system wants us to render the body now.  First we need to read the target tree.
+    var manifestPath = pathJoin(req.targetPath, "manifest.json");
+
+    console.log("DETAILS PATH: " + manifestPath);
+    loadJson(manifestPath, onManifest);
+
+    function onManifest(err, manifest) {
+      if (err) return callback(err);
+      if (!manifest) return callback("Missing " + manifestPath);
+
+			var m = JSON.stringify(manifest));
+
+      console.log("MANIFEST: " + m;
+
+			var template = m["template"];
+
+      // For now just render the json out as the final output
+      callback(null, binary.fromUnicode(JSON.stringify(manifest)));
 
     }
   }

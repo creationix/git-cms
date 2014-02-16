@@ -16,24 +16,53 @@ function page_generator(servePath, req, callback) {
   return callback(null, {etag: etag, fetch: fetch});
 
   function fetch(callback) {
-    // The system wants us to render the body now.  First we need to read the target template.
-    req.target.fetch(onBody);
 
-    // Now that we have the body, we can process it
+    console.log("PATH: " + req.targetPath);
+
+    // The system wants us to render the body now.  First we need to read the target tree.
+    var detailsPath = pathJoin(req.targetPath, "details.json");
+
+    console.log("DETAILS PATH: " + detailsPath);
+    loadJson(detailsPath, onDetails);
+
+    function onDetails(err, details) {
+      if (err) return callback(err);
+      if (!details) return callback("Missing " + detailsPath);
+
+      console.log("DETAILS: " + JSON.stringify(details));
+
+      // For now just render the json out as the final output
+      callback(null, binary.fromUnicode(JSON.stringify(details)));
+
+    }
+  }
+
+  function loadJson(path, callback) {
+    loadFile(path, onJson);
+
+    function onJson(err, json) {
+      if (json === undefined) return callback(err);
+      var data;
+      try { data = JSON.parse(json); }
+      catch (err) { return callback(err); }
+      callback(null, data);
+    }
+  }
+
+  function loadFile(path, callback) {
+    servePath(path, null, onResult);
+
+    function onResult(err, result) {
+      if (!result) return callback(err);
+      result.fetch(onBody);
+    }
+
     function onBody(err, body) {
       if (err) return callback(err);
-
-      // Convert to text.  This will throw if the data isn't utf-8, so we try..catch
-      var html;
-      try { html = binary.toUnicode(body); }
+      var text;
+      try { text = binary.toUnicode(body); }
       catch (err) { return callback(err); }
-
-      // TODO: here process the html
-      // If we need to load any other resources, we will use
-      // servePath(path, etag, callback) to load them.
-      // Then once we're done rendering the final html page...
-      // Send the result as binary.
-      callback(null, binary.fromUnicode(html));
+      callback(null, text);
     }
   }
 }

@@ -44,6 +44,8 @@ function page_generator(servePath, req, callback) {
 
     // The system wants us to render the body now.  First we need to read the target tree.
     var manifestPath = pathJoin(req.targetPath, "manifest.json");
+    var pathbits = manifestPath.split("/");
+    var page_name = pathbits[ pathbits.length - 2 ];
 
     console.log("DETAILS PATH: " + manifestPath);
     loadJson(manifestPath, onManifest);
@@ -56,7 +58,17 @@ function page_generator(servePath, req, callback) {
 
       function onBody(err, body) {
         if (body === undefined) return callback(err);
-        callback(null, binary.fromUnicode(body));
+
+        var regexp = /include\(.*\)/g;
+        var all_includes = body.match(regexp);
+
+        for (var i = 0; all_includes.length > i; i++){
+          var each_include = all_includes[i].replace(/^include\(\{|\}\)$/g,'');
+          all_includes[i] = each_include.replace(/\$\w*/, page_name);
+        }
+
+
+        callback(null, binary.fromUnicode(all_includes));
       }
 
       /*

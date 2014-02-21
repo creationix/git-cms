@@ -51,15 +51,20 @@ function page_generator(servePath, req, callback) {
     function onManifest(err, manifest) {
       if (err) return callback(err);
       if (!manifest) return callback("Missing " + manifestPath);
-
+      /*
 			var m = JSON.parse(manifest);
 
-      console.log("MANIFEST: " + m);
+      // console.log("MANIFEST: " + m);
 
 			var template = m["template"];
 
       // For now just render the json out as the final output
       callback(null, binary.fromUnicode(template));
+      */
+      console.log("manifest: " + JSON.stringify(manifest));
+
+      // For now just render the json out as the final output
+      callback(null, binary.fromUnicode(JSON.stringify(manifest)));
 
     }
   }

@@ -51,7 +51,13 @@ function page_generator(servePath, req, callback) {
     function onManifest(err, manifest) {
       if (err) return callback(err);
       if (!manifest) return callback("Missing " + manifestPath);
-			var template = manifest.template;
+			var templatepath = manifest.template;
+      loadFile(templatepath, onBody);
+
+      function onBody(err, body) {
+        if (body === undefined) return callback(err);
+        callback(null, binary.fromUnicode(body));
+      }
 
       /*
 			var m = JSON.parse(manifest);
@@ -63,10 +69,10 @@ function page_generator(servePath, req, callback) {
       // For now just render the json out as the final output
       callback(null, binary.fromUnicode(template));
       */
-      console.log("manifest: " + JSON.stringify(manifest));
+      //console.log("manifest: " + JSON.stringify(manifest));
 
       // For now just render the json out as the final output
-      callback(null, binary.fromUnicode(template));
+      //callback(null, binary.fromUnicode(template));
 
     }
   }

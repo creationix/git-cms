@@ -1,5 +1,5 @@
 {
-  "template": "../../../../templates/css-properties-page.html",
+  "template": "templates/css-properties-page.html",
   "tags": [
     "css",
     "borders",

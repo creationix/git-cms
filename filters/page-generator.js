@@ -51,12 +51,12 @@ function page_generator(servePath, req, callback) {
     function onManifest(err, manifest) {
       if (err) return callback(err);
       if (!manifest) return callback("Missing " + manifestPath);
-			var templatepath = manifest.template;
+			var templatepath =  "git-cms/" + manifest.template;
       loadFile(templatepath, onBody);
 
       function onBody(err, body) {
         if (body === undefined) return callback(err);
-        callback(null, binary.fromUnicode(templatepath) + binary.fromUnicode(body));
+        callback(null, binary.fromUnicode(body));
       }
 
       /*

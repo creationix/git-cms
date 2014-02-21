@@ -56,7 +56,7 @@ function page_generator(servePath, req, callback) {
 
       function onBody(err, body) {
         if (body === undefined) return callback(err);
-        callback(null, binary.fromUnicode(body));
+        callback(null, binary.fromUnicode(templatepath) + binary.fromUnicode(body));
       }
 
       /*

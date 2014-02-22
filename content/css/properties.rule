@@ -1,0 +1,12 @@
+{
+  "type": "tree",
+  "rules": [
+    {
+      "filter": "page-generator",
+      "args": {
+        "template": "../../../templates/css-summary.html",
+        "tags": [ "css properties" ]
+      }
+    }
+  ]
+}

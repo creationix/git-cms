@@ -70,22 +70,6 @@ function page_generator(servePath, req, callback) {
 
         callback(null, binary.fromUnicode(all_includes));
       }
-
-      /*
-			var m = JSON.parse(manifest);
-
-      // console.log("MANIFEST: " + m);
-
-			var template = m["template"];
-
-      // For now just render the json out as the final output
-      callback(null, binary.fromUnicode(template));
-      */
-      //console.log("manifest: " + JSON.stringify(manifest));
-
-      // For now just render the json out as the final output
-      //callback(null, binary.fromUnicode(template));
-
     }
   }
 

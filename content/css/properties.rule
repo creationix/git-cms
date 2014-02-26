@@ -1,12 +1,36 @@
 {
-  "type": "tree",
-  "rules": [
+  "content": [
     {
-      "filter": "page-generator",
-      "args": {
-        "template": "../../../templates/css-summary.html",
-        "tags": [ "css properties" ]
-      }
+      "type": "page",
+      "rules": [
+        {
+          "filter": "page-generator",
+          "args": {
+            "template": "../../../templates/css-summary.html",
+            "tags": [ "css properties" ],
+            "output": "index.html"
+          }
+        }
+      ]
+    },
+    {
+      "type": "tree",
+      "rules": [
+        {
+          "filter": "page-generator",
+          "args": {
+            "template": "../../../templates/css-properties-page.html",
+            "tags": {
+              "input": "details.json",
+              "index": "tags"
+            },
+            "output": {
+              "input": "details.json",
+              "index": "title"
+            }
+          }
+        }
+      ]
     }
   ]
 }

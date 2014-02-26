@@ -7,9 +7,12 @@
 <body>
   <h1>CSS Properties</h1>
   <article id="main">
-    <section id="Summary">
-      include(css/properties/.*, "alphabetic")
-      include(css/properties/.*/Summary, "alphabetic")
+    <section id="list">
+      <ul>
+        {#loop("css/properties/", "alphabetic")}
+          <li><b>{title}</b>: {include(propertyName + "/summary.html")}</li>
+        {/loop}
+      </ul>
     </section>
 </body>
 </html>
